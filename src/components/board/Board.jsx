@@ -1,4 +1,5 @@
 import React from "react";
+import Form from "../form/Form";
 
 export default class Board extends React.Component {
   constructor() {
@@ -6,6 +7,6 @@ export default class Board extends React.Component {
     this.state = {};
   }
   render() {
-    return <h1>My TASKS LIST</h1>;
+    return <Form></Form>;
   }
 }
