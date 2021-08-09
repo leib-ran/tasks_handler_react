@@ -1,20 +1,27 @@
 import React from "react";
 import Form from "../form/Form";
+import Task from "../tasks/tasks";
 
 export default class Board extends React.Component {
   constructor() {
     super();
     this.state = {
-      text: "",
+      text: [],
     };
   }
   AddTask() {
     let textVal = document.querySelector("#text_field").value;
-    console.log(textVal);
-    this.setState({ text: textVal });
-    // console.log(this.state.text);
+    let arrCopy = [...this.state.text];
+    this.setState({ text: arrCopy.concat(textVal) });
   }
   render() {
-    return <Form add={this.AddTask.bind(this)}></Form>;
+    return (
+      <div>
+        <Form add={this.AddTask.bind(this)}></Form>
+        {this.state.text.map((element, index) => {
+          return <Task key={index} text={element}></Task>;
+        })}
+      </div>
+    );
   }
 }
