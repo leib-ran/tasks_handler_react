@@ -8,7 +8,10 @@ export default function Form(props) {
       <button id="+" onClick={props.add}>
         +
       </button>
-      <button id="del_all">Delete All</button>
+      <button id="del_all" onClick={props.delAll}>
+        Delete All
+      </button>
+      {console.log(props.delAll)}
       <button id="delete_Completed">Delete Completed</button>
     </div>
   );
