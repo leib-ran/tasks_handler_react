@@ -6,13 +6,17 @@ export default class Board extends React.Component {
   constructor() {
     super();
     this.state = {
-      text: [],
+      text:
+        localStorage["tasks"] == null ? [] : JSON.parse(localStorage["tasks"]),
     };
   }
+
   AddTask() {
     let textVal = document.querySelector("#text_field").value;
     let arrCopy = [...this.state.text];
     this.setState({ text: arrCopy.concat(textVal) });
+    console.log(arrCopy.concat(textVal));
+    localStorage.setItem("tasks", JSON.stringify(arrCopy.concat(textVal)));
   }
   render() {
     return (
