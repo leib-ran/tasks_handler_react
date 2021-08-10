@@ -80,7 +80,9 @@ module.exports = {
     backdropOpacity: (theme) => theme("opacity"),
     backdropSaturate: (theme) => theme("saturate"),
     backdropSepia: (theme) => theme("sepia"),
-    backgroundColor: (theme) => theme("colors"),
+    backgroundColor: (theme) => ({
+      primary: "#4AA53D",
+    }),
     backgroundImage: {
       none: "none",
       "gradient-to-t": "linear-gradient(to top, var(--tw-gradient-stops))",
@@ -618,7 +620,6 @@ module.exports = {
     ringColor: (theme) => ({
       DEFAULT: theme("colors.blue.500", "#3b82f6"),
       ...theme("colors"),
-      plusbtn: "#5866CF",
     }),
     ringOffsetColor: (theme) => theme("colors"),
     ringOffsetWidth: {

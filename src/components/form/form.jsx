@@ -9,7 +9,7 @@ export default function Form(props) {
       <div className="flex flex-row ">
         <input
           id="text_field"
-          className="w-80"
+          className="w-80 pl-2.5"
           type="text"
           placeholder="New Task"
         />
