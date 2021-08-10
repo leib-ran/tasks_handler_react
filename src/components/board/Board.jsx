@@ -33,13 +33,27 @@ export default class Board extends React.Component {
   }
 
   removecompleted() {
-    document.querySelectorAll("delcompleted");
+    let arrcopy = [...this.state.text];
+    let done = [...this.state.done];
+    let counter = 0;
+    let size = done.length;
+    for (let index = 0; index < size; index++) {
+      if (done[counter] == "true") {
+        done = done.slice(0, counter).concat(done.slice(counter + 1));
+        arrcopy = arrcopy.slice(0, counter).concat(arrcopy.slice(counter + 1));
+        --counter;
+      }
+      ++counter;
+    }
+    this.setState({ done: done, text: arrcopy });
+    localStorage.setItem("done", JSON.stringify(done));
+    localStorage.setItem("text", JSON.stringify(arrcopy));
   }
   signTask = function (index) {
-    console.log(this);
     let doneArr = [...this.state.done];
-    doneArr[index] = "true";
+    doneArr[index] = doneArr[index] == "false" ? "true" : "false";
     this.setState({ done: doneArr });
+    localStorage.setItem("done", JSON.stringify(doneArr));
   };
 
   render() {
@@ -48,6 +62,7 @@ export default class Board extends React.Component {
         <Form
           add={this.addTask.bind(this)}
           delAll={this.removeAll.bind(this)}
+          delcompleted={this.removecompleted.bind(this)}
         ></Form>
         {this.state.text.map((element, index) => {
           return (

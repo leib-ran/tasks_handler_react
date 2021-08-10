@@ -29,11 +29,10 @@ export default function Form(props) {
         >
           Delete All
         </button>
-
-        {console.log(props.delAll)}
         <button
           id="delete_Completed"
           className="bg-red-500 text-white w-36 ml-2 focus:ring-2 focus:ringColor-black focus:ring-gray-900"
+          onClick={props.delcompleted}
         >
           Delete Completed
         </button>
