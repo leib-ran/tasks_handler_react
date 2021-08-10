@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import Form from "../form/Form";
-import Task from "../tasks/tasks";
+import Task from "../tasks/Tasks";
 
 export default class Board extends React.Component {
   constructor() {
